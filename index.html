@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Text Editor</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="btn-toolbar">
+        <button onclick="formatDoc('undo')">
+          <img src="icons8-undo-24.png" alt="" />
+        </button>
+        <button onclick="formatDoc('redo')">
+          <img src="icons8-redo-24.png" alt="" />
+        </button>
+        <button onclick="formatDoc('italic')">
+          <img src="icons8-italic-24.png" alt="" />
+        </button>
+      </div>
+      <div class="container">
+        <div id="content" contenteditable="true" spellcheck="false">
+          Lorem, ipsum dolor.
+        </div>
+        <div class="toolbar">
+          <div class="head">
+            <select onchange="changeFont (this)" ; this.selectedIndex="0;">
+              <option value="" selected="" hidden="" disabled="">
+                Font Style
+              </option>
+              <option value="Ariel">Ariel</option>
+              <option value="Comic Sans MS">Comic Sans</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="cursive">Cursive</option>
+              <option value="monospace">monospace</option>
+              <option value="serif">serif</option>
+              <option value="Impact">Impact</option>
+            </select>
+            <select
+              onchange="formatDoc('fontSize', this.value); this.selectedIndex=0;"
+            >
+              <option value="" selected="" hidden="" disabled="">
+                Font size
+              </option>
+              <option value="1">Extra small</option>
+              <option value="2">Small</option>
+              <option value="3">Regular</option>
+              <option value="4">Medium</option>
+              <option value="5">Large</option>
+              <option value="6">Extra Large</option>
+              <option value="7">Big</option>
+            </select>
+            <div class="color">
+              <span>Color</span>
+              <input
+                type="color"
+                oninput="formatDoc('foreColor', this.value); this.value='#000000';"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
